@@ -362,9 +362,9 @@ class BookingRequest(BaseModel):
         ...,
         description="Hotel branch / city name (case-insensitive).",
     )
-    room_type: Literal["standard_twin", "deluxe_double", "executive_suite"] = Field(
+    room_type: str = Field(
         ...,
-        description="Room category to reserve.",
+        description="Room category to reserve (e.g. 'standard_twin', 'deluxe_double', 'executive_suite').",
     )
     arrival_date: str = Field(
         ...,
