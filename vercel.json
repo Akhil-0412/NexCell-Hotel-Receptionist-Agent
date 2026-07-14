@@ -1,14 +1,7 @@
 {
-  "functions": {
-    "api/token.js": { "runtime": "nodejs20.x" },
-    "api/dispatch.js": { "runtime": "nodejs20.x" }
-  },
   "rewrites": [
-    { "source": "/api/token", "destination": "/api/token.js" },
-    { "source": "/api/dispatch", "destination": "/api/dispatch.js" },
     { "source": "/assets/(.*)", "destination": "/assets/$1" },
     { "source": "/", "destination": "/frontend/index.html" },
     { "source": "/(.*)", "destination": "/frontend/$1" }
   ]
 }
-
