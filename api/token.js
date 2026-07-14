@@ -1,4 +1,6 @@
-module.exports = async function handler(req, res) {
+import { AccessToken } from 'livekit-server-sdk';
+
+export default async function handler(req, res) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -20,7 +22,6 @@ module.exports = async function handler(req, res) {
   }
 
   try {
-    const { AccessToken } = require('livekit-server-sdk');
     const at = new AccessToken(apiKey, apiSecret, { identity: participantName });
     at.addGrant({ roomJoin: true, room: roomName });
     const token = await at.toJwt();
@@ -29,8 +30,7 @@ module.exports = async function handler(req, res) {
     console.error("Token generation failed:", error);
     res.status(500).json({ 
       error: "Failed to generate token", 
-      message: error.message,
-      stack: error.stack
+      message: error.message 
     });
   }
-};
+}
