@@ -1,5 +1,8 @@
 {
   "name": "nexcell-frontend",
   "version": "1.0.0",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "livekit-server-sdk": "^2.17.0"
+  }
 }
