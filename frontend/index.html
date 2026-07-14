@@ -1002,6 +1002,10 @@ function attachRoomEvents(r) {
       // Drive orb from agent's audio
       const ms = new MediaStream([track.mediaStreamTrack]);
       startOrbAnalyser(ms);
+      
+      // Update UI so user knows she's ready
+      setCaption("Olivia has joined the room. Say hello!");
+      setOrbState("idle");
     }
   });
 
