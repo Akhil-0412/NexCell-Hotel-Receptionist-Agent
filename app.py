@@ -5,17 +5,8 @@ import os
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-import spaces
 
 app = FastAPI()
-
-# ZeroGPU hardware on Hugging Face requires at least one @spaces.GPU function
-# to be defined to allocate resources, otherwise it crashes on startup.
-@app.get("/gpu")
-@spaces.GPU
-def dummy_gpu_function():
-    return {"status": "gpu allocated"}
-
 
 @app.get("/")
 def read_root():
