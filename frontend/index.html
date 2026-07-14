@@ -786,7 +786,7 @@
 const LIVEKIT_URL   = "wss://hotel-ai-assistant-2gg6ka24.livekit.cloud";
 const TOKEN_API     = "/api/token";       // served by mcp_server.py
 const DISPATCH_API  = "/api/dispatch";    // triggers agent to join room
-const ROOM_NAME     = "nexcell-lobby";
+const ROOM_NAME     = "nexcell-lobby-" + Math.floor(Math.random() * 10000);
 
 // ─────────────────────────────────────────────────────
 // STATE
