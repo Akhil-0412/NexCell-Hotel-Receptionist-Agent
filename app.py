@@ -5,12 +5,20 @@ import os
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+import spaces
 
 app = FastAPI()
+
+# ZeroGPU hardware on Hugging Face requires at least one @spaces.GPU function
+# to be defined to allocate resources, otherwise it crashes on startup.
+@spaces.GPU
+def dummy_gpu_function():
+    pass
 
 @app.get("/")
 def read_root():
     return HTMLResponse("<h1>Olivia Backend is running.</h1><p>Frontend is hosted on Vercel.</p>")
+
 
 def main():
     print("[Orchestrator] Starting MCP Server...", flush=True)
